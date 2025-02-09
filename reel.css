@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.shorts-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+/* Video Wrapper - Ensures 9:16 ratio */
+.video-wrapper {
+    width: 100vw;
+    height: calc(100vh - 10px); /* Maintain 9:16 without cropping */
+    max-width: 360px;
+    max-height: 640px;
+    margin-bottom: 10px;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+/* Video Player - Fits any aspect ratio without cropping */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures full visibility of any aspect ratio */
+    background: black; /* Fills letterbox areas with black */
+}
+
+/* Upload Button */
+.upload-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: red;
+    color: white;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
